@@ -1,0 +1,19 @@
+
+<form novalidate name="patientForm">
+<h3>MRN: {{patient.mrn}}</h3>
+<div><input type="text" ng-model="patient.familyName"></div>
+<div><input type="text" ng-model="patient.givenName"></div>
+<br>
+<div>Name: {{patient.familyName}}, {{patient.givenName}}</div>
+<br>
+<button ng-click="searchByMRN()">Search</button>
+<div>{{searchString}}</div>
+<div>
+	<b>Labs:</b>
+	<ul>
+		<li ng-repeat="lab in patient.labs | orderBy:'value'">
+			{{lab.code}} - {{lab.value}}
+		</li>
+	</ul>
+</div>
+</form>
